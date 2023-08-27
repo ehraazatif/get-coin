@@ -1,0 +1,9 @@
+I have designed s simple game. The game is made up of a player and a coin on a 10x10 grid. The objective of the game is that the player must get to the stationary coin. 
+
+To play this game, I have trained a neural network (NN) using the NEAT training algorithm. The basis of the NEAT training algorithm is that it begins with a very simple NN, then adds additional nodes and layers to try and better solve the problem. The main objective of using the NEAT training algorithm is to obtain a minimal NN that can solve the problem (it is also VERY easy to use).
+
+To train the NN, I used the same game but on a 2x2 grid instead of a 10x10. Initially training on a 10x10 grid was leading to the NN rarely ever getting to the coin, and so it was never able to develop that behaviour. I used a 2x2 so that the NN could at least randomly get to the coin very easily, so that I could teach it what it needs to do. Additionally, because of the way I trained the NN, I had to make some changes to the algorithm. Since it is very easy to just stumble upon the coin in a 2x2 grid. So, instead of the algorithm returning the NN that performed the best amongst ALL generations, I only took the best NN of the LAST generation. This would ensure that the NN had actually learned the objective of getting to the coin. I made this change in the population.py file in the NEAT library.
+
+For the base structure of the NN, I gave it 6 inputs: the x- and y-coordinates of the player, the x- and y-coordinates of the coin, as well as the the difference between the x- and y-coordinates between the player and the coin. The ouputs were 4 neurons, representing up, down, left and right movement. Further details about the NN can be found in the config.txt file. 
+
+Additional note: I've included the edited population.py file from the neat-python package for reference. The lines I've edited are marked with my name (Ehraaz).
